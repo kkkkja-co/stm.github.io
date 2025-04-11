@@ -4,15 +4,17 @@ A collection of classic games including Wordle, Sudoku, Memory Matching, and Can
 
 ## Features
 
+- SOS Help Button
 - Dynamic Island-style interface
 - Real-time clock and weather display
+
+## Games
 - Multiple game integrations:
-  - Wordle Unlimited
+  - Wordle 
   - Sudoku
   - Memory Matching Game
   - Custom Candy Crush
 
-## Games
 
 ### Wordle
 - Unlimited word guessing game
@@ -72,8 +74,8 @@ Web/
 
 ## Browser Support
 
-- Chrome (recommended)
-- Firefox
+- Chrome 
+- Firefox (recommended)
 - Safari
 - Edge
 
