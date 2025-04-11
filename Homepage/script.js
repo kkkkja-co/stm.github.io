@@ -94,3 +94,14 @@ document.querySelector('.help-button').addEventListener('click', function() {
         updateDisplay();
     });
 });
+
+// Add event listener to Wordle button
+document.querySelector('.game-button:nth-child(2)').addEventListener('click', function() {
+    const popup = document.getElementById('wordlePopup');
+    popup.classList.add('active');
+});
+
+function closeWordlePopup() {
+    const popup = document.getElementById('wordlePopup');
+    popup.classList.remove('active');
+}
