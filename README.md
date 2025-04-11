@@ -59,10 +59,15 @@ A modern collection of classic games presented in an iPhone-style interface with
 
 ```bash
 # Clone the repository
+git clone https://github.com/kkkkja-co/stm_web.git
 
-# Navigate to project directory
+# Navigate to project directory (in your download folder)
+cd C:\users\(username)\downloads\stm_web
 
-# Open in browser
+# Open in browser 
+# (May replace start with your browser e.g: firefox lockscreen\lockscreen.html)
+start lockscreen\lockscreen.html
+
 ```
 
 ## 📁 Project Structure
