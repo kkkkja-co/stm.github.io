@@ -105,3 +105,14 @@ function closeWordlePopup() {
     const popup = document.getElementById('wordlePopup');
     popup.classList.remove('active');
 }
+
+// Add after the Wordle button event listener
+document.querySelector('.game-button:nth-child(3)').addEventListener('click', function() {
+    const popup = document.getElementById('sudokuPopup');
+    popup.classList.add('active');
+});
+
+function closeSudokuPopup() {
+    const popup = document.getElementById('sudokuPopup');
+    popup.classList.remove('active');
+}

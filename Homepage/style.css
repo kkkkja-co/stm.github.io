@@ -245,6 +245,21 @@ body {
   text-indent: -9999px; /* Ensure text is hidden */
 }
 
+.game-button:nth-child(3) {  /* Targets the Sudoku button */
+    transform: translate(-4px, -83px);
+    scale: 1.251;
+    z-index: 1;
+    width: 120px;
+    height: 91px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('/Homepage/Button/sudoku_button.png') center center/contain no-repeat;
+    border: none;
+    color: transparent;
+    text-indent: -9999px;
+}
+
 .help-button {
     grid-column: 1 / -1;
     width: 141px;
@@ -294,6 +309,25 @@ body {
 }
 
 .wordle-popup.active {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.sudoku-popup {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    width: 90%;
+    height: 80%;
+    z-index: 1000;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.sudoku-popup.active {
     display: block;
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
