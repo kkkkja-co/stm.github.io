@@ -1,58 +1,71 @@
 # Web-based Game Collection
 
-A collection of classic games including Wordle, Sudoku, Memory Matching, and Candy Crush, presented in an iPhone-style interface.
+A modern collection of classic games presented in an iPhone-style interface with Dynamic Island integration.
 
-## Features
+## 🎮 Features
+- **Emergency Usage**
+    - SOS Help Button with emergency contact
+- **Dynamic Island Interface**
+  - Real-time clock display
+  - Live weather updates
+  - Heart Rate and Blood Pressure on the lockscreen
+- **Responsive Design**
+  - iPhone frame layout
+  - Adaptive game windows
+  - Custom scaling for different games
 
-- SOS Help Button
-- Dynamic Island-style interface
-- Real-time clock and weather display
+## 🎲 Games Collection
 
-## Games
-- Multiple game integrations:
-  - Wordle 
-  - Sudoku
-  - Memory Matching Game
-  - Custom Candy Crush
-
-
-### Wordle
-- Unlimited word guessing game
-- Integrated from wordleunlimited.org
+### Wordle Unlimited
+- Word guessing game with unlimited plays
+- Custom styled button integration
+- Source: wordleunlimited.org
 
 ### Sudoku
-- Classic number puzzle game
-- Integrated from soodoku.com
+- Classic number puzzle
+- Integrated web version
+- Source: soodoku.com
 
 ### Memory Matching
 - Card matching memory game
-- Integrated from memorymatching.com
+- Dark theme optimization
+- Source: memorymatching.com
 
 ### Candy Crush
 - Custom implementation
-- Match-three puzzle game
-- Score tracking system
+- Match-three puzzle mechanics
+- Real-time score tracking
+- Responsive grid system
 
-## Technical Details
+## 🛠 Technical Stack
 
-- Built with vanilla HTML, CSS, and JavaScript
-- Responsive design
-- iframe integration for external games
-- Custom scaling and positioning for game displays
+- **Frontend**
+  - HTML5
+  - CSS3 (with animations)
+  - Vanilla JavaScript
+  
+- **Integrations**
+  - iframe implementations
+  - Custom scaling solutions
+  - Weather API integration
 
-## Development Team
+## 👥 Development Team
 
-- UX Design: Jaden Kan
-- UI Design: Bosco Wong
-- Version: Beta Demo
+- **UX Design**: Jaden Kan
+- **UI Design**: Bosco Wong
+- **Version**: Beta Demo Ver.
 
-## Setup
+## 📥 Installation
 
-1. Clone the repository
-2. Open the project in a web browser
-3. No additional installation required
+```bash
+# Clone the repository
 
-## Project Structure
+# Navigate to project directory
+
+# Open in browser
+```
+
+## 📁 Project Structure
 
 ```
 Web/
@@ -72,13 +85,18 @@ Web/
 └── README.md
 ```
 
-## Browser Support
+## 🌐 Browser Support
 
-- Chrome 
-- Firefox (recommended)
-- Safari
-- Edge
+| Browser | Support |
+|---------|---------|
+| Chrome  | ✅      |
+| Firefox | ✅      | (Recommended)
+| Safari  | ✅      |
+| Edge    | ✅      |
 
-## License
+## 📜 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### Third-Party Attributions
+- Candy Crush component: © Shokat Javed at JV Codes (www.jvcodes.com)
