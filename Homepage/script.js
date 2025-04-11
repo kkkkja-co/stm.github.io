@@ -127,3 +127,14 @@ function closeMatchingPopup() {
     const popup = document.getElementById('matchingPopup');
     popup.classList.remove('active');
 }
+
+// Add event listener to Candy Crush button
+document.querySelector('.game-button:nth-child(5)').addEventListener('click', function() {
+    const popup = document.getElementById('candycrushPopup');
+    popup.classList.add('active');
+});
+
+function closeCandyCrushPopup() {
+    const popup = document.getElementById('candycrushPopup');
+    popup.classList.remove('active');
+}
