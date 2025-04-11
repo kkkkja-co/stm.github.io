@@ -231,7 +231,7 @@ body {
 }
 
 .game-button:nth-child(2) {  /* Targets the Wordle button */
-  transform: translate(-40px, -83px);
+  transform: translate(-40px, -70px);
   scale: 1.251;  /* Makes the button 50% larger */
   z-index: 1;  /* Ensures the button appears above other elements */
   width: 120px;  /* Base width */
@@ -246,7 +246,7 @@ body {
 }
 
 .game-button:nth-child(3) {  /* Targets the Sudoku button */
-    transform: translate(-4px, -83px);
+    transform: translate(-4px, -70px);
     scale: 1.251;
     z-index: 1;
     width: 120px;
@@ -255,6 +255,21 @@ body {
     align-items: center;
     justify-content: center;
     background: url('/Homepage/Button/sudoku_button.png') center center/contain no-repeat;
+    border: none;
+    color: transparent;
+    text-indent: -9999px;
+}
+
+.game-button:nth-child(4) {  /* Targets the Matching Game button */
+    transform: translate(-40px, -195px);
+    scale: 1.251;
+    z-index: 1;
+    width: 120px;
+    height: 91px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('/Homepage/Button/matchinggame_button.png') center center/contain no-repeat;
     border: none;
     color: transparent;
     text-indent: -9999px;
@@ -328,6 +343,25 @@ body {
 }
 
 .sudoku-popup.active {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.matching-popup {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    width: 90%;
+    height: 80%;
+    z-index: 1000;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.matching-popup.active {
     display: block;
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);

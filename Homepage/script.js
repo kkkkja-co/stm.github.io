@@ -116,3 +116,14 @@ function closeSudokuPopup() {
     const popup = document.getElementById('sudokuPopup');
     popup.classList.remove('active');
 }
+
+// Add event listener to Matching Game button
+document.querySelector('.game-button:nth-child(4)').addEventListener('click', function() {
+    const popup = document.getElementById('matchingPopup');
+    popup.classList.add('active');
+});
+
+function closeMatchingPopup() {
+    const popup = document.getElementById('matchingPopup');
+    popup.classList.remove('active');
+}
