@@ -471,7 +471,6 @@ body {
     filter: brightness(1.2);
     animation: settingsPulse 1.5s infinite;
 }
-
 @keyframes settingsPulse {
     0% {
         transform: scale(1);
@@ -483,3 +482,39 @@ body {
         transform: scale(1);
     }
 }
+
+.weather-button {
+    position: absolute;
+    top: 758px; /* Same vertical position as settings button */
+    right: 73px;  /* 20px + width of settings button + 20px gap */
+    width: 86px;  /* Match settings button width */
+    height: 60px;  /* Match settings button height */
+    background: url('/Homepage/Button/weather_button.png') center center/contain no-repeat;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: transparent;
+    text-indent: -9999px;
+    z-index: 100;
+    transform-origin: center;
+}
+
+.weather-button:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+    animation: weatherPulse 1.5s infinite;
+}
+
+@keyframes weatherPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
