@@ -51,7 +51,7 @@ function handleTouchEnd() {
 // Update the unlockPhone function
 function unlockPhone() {
     // Simply redirect to homepage without animation
-    window.location.href = '../Homepage/homepage.html';
+    window.location.href = 'homepage.html';
 }
 
 // Update Hong Kong time for dynamic island
