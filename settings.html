@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link href="/settings/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="iphone-x">
+        <div class="screen-content" id="lockscreen">
+            <div class="dynamic-island">
+                <div class="island-content">
+                    <div class="hk-info">
+                        <div class="info-row">
+                            <span class="hk-time"></span>
+                            <span class="weather-divider">•</span>
+                            <span class="hk-weather"></span>
+                        </div>
+                        <div class="health-row">
+                            <span class="heart-rate">H.R.💓 : 72</span>
+                            <span class="weather-divider">•</span>
+                            <span class="blood-pressure">B.P.🩸 : 157</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="settings-container">
+            <div class="settings-header">
+                <button class="back-button" onclick="window.location.href='homepage.html'">←</button>
+                <h1>Settings</h1>
+            </div>
+
+            <div class="settings-content">
+                <div class="setting-group">
+                    <h2 data-translate="Language">Language</h2>
+                    <div class="setting-item">
+                        <span data-translate="System Language">System Language</span>
+                        <select id="languageSelect" class="language-select">
+                            <option value="en">English</option>
+                            <option value="zh-TW">繁體中文</option>
+                            <option value="ja">日本語</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <h2 data-translate="Display">Display</h2>
+                    <div class="setting-item">
+                        <span data-translate="Dark Mode">Dark Mode</span>
+                        <label class="switch">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <h2 data-translate="Sound">Sound</h2>
+                    <div class="setting-item">
+                        <span data-translate="Sound Effects">Sound Effects</span>
+                        <label class="switch">
+                            <input type="checkbox" id="soundToggle" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <h2 data-translate="About">About</h2>
+                    <div class="setting-item">
+                        <span data-translate="Version">Version</span>
+                        <span class="version-number">1.0.0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/settings/script.js"></script>
+</body>
+</html>
