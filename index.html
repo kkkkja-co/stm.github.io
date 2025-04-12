@@ -1,66 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Application</title>
-  <link href="/homepage/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Lock Screen</title>
+    <link rel="stylesheet" href="/lockscreen/lockscreen.css">
 </head>
 <body>
-  <div class="iphone-x">
-    <div class="dynamic-island">
-      <div class="island-content">
-        <div class="hk-info">
-          <span class="hk-time"></span>
-          <span class="weather-divider">•</span>
-          <span class="hk-weather"></span>
+    <div class="iphone-x">
+        <div class="screen-content" id="lockscreen">
+            <div class="dynamic-island">
+                <div class="island-content">
+                    <div class="hk-info">
+                        <div class="info-row">
+                            <span class="hk-time"></span>
+                            <span class="weather-divider">•</span>
+                            <span class="hk-weather"></span>
+                        </div>
+                        <div class="health-row">
+                            <span class="heart-rate">H.R.💓 : 72</span>
+                            <span class="weather-divider">•</span>
+                            <span class="blood-pressure">B.P.🩸 : 157</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lock-screen-container">
+                <div class="lock-time" id="lockTime"></div>
+                <div class="lock-date" id="lockDate"></div>
+            </div>
+            <div class="swipe-indicator">
+                Press to unlock
+                <span class="swipe-arrow">↑</span>
+            </div>
         </div>
-      </div>
     </div>
-    
-    <div class="game-buttons">
-      <button class="game-button help-button" aria-label="Help"></button>
-      <button class="game-button">Wordle</button>
-      <button class="game-button">Sudoku</button>
-      <button class="game-button">Matching Game</button>
-      <button class="game-button">Candy Crush</button>
-    </div>
-
-    <div class="wordle-popup" id="wordlePopup">
-      <div class="popup-content">
-        <button class="close-button" onclick="closeWordlePopup()">×</button>
-        <iframe src="https://wordleunlimited.org/" frameborder="0"></iframe>
-      </div>
-    </div>
-
-    <div class="sudoku-popup" id="sudokuPopup">
-      <div class="popup-content">
-        <button class="close-button" onclick="closeSudokuPopup()">×</button>
-        <iframe src="https://soodoku.com/" frameborder="0"></iframe>
-      </div>
-    </div>
-
-    <div class="matching-popup" id="matchingPopup">
-      <div class="popup-content">
-        <button class="close-button" onclick="closeMatchingPopup()">×</button>
-        <iframe src="https://memorymatching.com/#" style="background-color: black;" frameborder="0"></iframe>
-      </div>
-    </div>
-
-    <div class="candycrush-popup" id="candycrushPopup">
-      <div class="popup-content">
-        <button class="close-button" onclick="closeCandyCrushPopup()">×</button>
-        <iframe src="candycrush.html" frameborder="0"></iframe>
-      </div>
-    </div>
-
     <div class="signature-container">
-      <div class="signature">Beta Demo Ver.</div>
-      <div class="signature">UX Design: Jaden Kan</div>
-      <div class="signature">UI Design: Bosco Wong</div>
-      <div class="signature">iPhone Frame Design: Adiel Hercules</div>
+        <div class="signature">Beta Demo Ver.</div>
+        <div class="signature">UX Design: Jaden Kan</div>
+        <div class="signature">UI Design: Bosco Wong</div>
+        <div class="signature">iPhone Frame Design: Adiel Hercules</div>
     </div>
-  </div>
-  <script src="/homepage/script.js"></script>
+    <script src="/lockscreen/lockscreen.js"></script>
 </body>
 </html>

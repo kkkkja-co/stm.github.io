@@ -1,5 +1,8 @@
 // Add this at the top of the file
-const dialingSound = new Audio('Button/dialing.mp3');
+const dialingSound = new Audio('./Button/dialing.mp3');
+
+// Pre-load the audio file
+dialingSound.load();
 
 // Update Hong Kong time
 function updateHKTime() {
@@ -66,8 +69,18 @@ document.querySelector('.help-button').addEventListener('click', function() {
     
     // Wait 0.5s then play sound
     setTimeout(() => {
-        dialingSound.currentTime = 0;
-        dialingSound.play();
+        try {
+            dialingSound.currentTime = 0;
+            const playPromise = dialingSound.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log("Audio play failed:", error);
+                });
+            }
+        } catch (error) {
+            console.log("Audio playback error:", error);
+        }
     }, 500);
     
     // Show dialing content
@@ -104,6 +117,7 @@ document.querySelector('.game-button:nth-child(2)').addEventListener('click', fu
 function closeWordlePopup() {
     const popup = document.getElementById('wordlePopup');
     popup.classList.remove('active');
+    clearIframeCache('wordlePopup');
 }
 
 // Add after the Wordle button event listener
@@ -115,6 +129,7 @@ document.querySelector('.game-button:nth-child(3)').addEventListener('click', fu
 function closeSudokuPopup() {
     const popup = document.getElementById('sudokuPopup');
     popup.classList.remove('active');
+    clearIframeCache('sudokuPopup');
 }
 
 // Add event listener to Matching Game button
@@ -126,6 +141,7 @@ document.querySelector('.game-button:nth-child(4)').addEventListener('click', fu
 function closeMatchingPopup() {
     const popup = document.getElementById('matchingPopup');
     popup.classList.remove('active');
+    clearIframeCache('matchingPopup');
 }
 
 // Add event listener to Candy Crush button
@@ -137,4 +153,13 @@ document.querySelector('.game-button:nth-child(5)').addEventListener('click', fu
 function closeCandyCrushPopup() {
     const popup = document.getElementById('candycrushPopup');
     popup.classList.remove('active');
+    clearIframeCache('candycrushPopup');
+}
+
+// Function to clear iframe cache by reloading the source
+function clearIframeCache(popupId) {
+    const iframe = document.querySelector(`#${popupId} iframe`);
+    const currentSrc = iframe.src;
+    iframe.src = '';
+    iframe.src = currentSrc;
 }
