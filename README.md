@@ -73,20 +73,32 @@ start lockscreen\lockscreen.html
 ## 📁 Project Structure
 
 ```
-Web/
-├── Homepage/
-│   ├── Button/
-│   │   ├── wordle_button.png
-│   │   ├── sudoku_button.png
-│   │   ├── matchinggame_button.png
-│   │   └── candycrush_button.png
-│   ├── Candy_Crush/
-│   │   ├── index.html
+stm_web/
+├── Web/
+│   ├── Homepage/
+│   │   ├── Button/
+│   │   │   ├── settings_button.png
+│   │   │   └── weather_button.png
 │   │   ├── style.css
 │   │   └── script.js
+│   │
+│   ├── Settings/
+│   │   ├── style.css
+│   │   └── script.js
+│   │
+│   ├── Weather/
+│   │   ├── assets/
+│   │   │   ├── weather.png
+│   │   │   ├── sunny.svg
+│   │   │   ├── cold.svg
+│   │   │   └── partly-cloudy.svg
+│   │   ├── style.css
+│   │   └── script.js
+│   │
 │   ├── homepage.html
-│   ├── style.css
-│   └── script.js
+│   ├── settings.html
+│   └── weather.html
+│
 └── README.md
 ```
 
