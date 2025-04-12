@@ -1,4 +1,4 @@
-# Web-based Game Collection
+# Application demonstration
 
 A modern collection of classic games presented in an iPhone-style interface with Dynamic Island integration.
 
