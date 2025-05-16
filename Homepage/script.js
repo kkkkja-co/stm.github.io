@@ -163,3 +163,39 @@ function clearIframeCache(popupId) {
     iframe.src = '';
     iframe.src = currentSrc;
 }
+
+async function updateTuenMunWeather() {
+    const weatherBox = document.querySelector('.weather-box');
+    
+    try {
+        // Fetch current weather data
+        const weatherResponse = await fetch('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en');
+        const weatherData = await weatherResponse.json();
+        
+        // Get Tuen Mun temperature
+        const tuenMunTemp = weatherData.temperature.data.find(item => item.place === "Tuen Mun");
+        weatherBox.querySelector('.current-temp').textContent = `${tuenMunTemp.value}°C`;
+        
+        // Get Tuen Mun humidity
+        const tuenMunHumidity = weatherData.humidity.data.find(item => item.place === "Tuen Mun");
+        weatherBox.querySelector('.humidity').textContent = `${tuenMunHumidity.value}%`;
+        
+        // Fetch forecast data for high/low temperatures
+        const forecastResponse = await fetch('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=en');
+        const forecastData = await forecastResponse.json();
+        
+        // Get today's forecast
+        const todayForecast = forecastData.weatherForecast[0];
+        weatherBox.querySelector('.low-temp').textContent = `${todayForecast.forecastMintemp.value}°C`;
+        weatherBox.querySelector('.high-temp').textContent = `${todayForecast.forecastMaxtemp.value}°C`;
+
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateTuenMunWeather();
+    // Update weather every 5 minutes
+    setInterval(updateTuenMunWeather, 300000);
+});

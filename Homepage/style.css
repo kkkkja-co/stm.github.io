@@ -29,7 +29,7 @@ body {
     margin: 40px auto;
     width: 400px;
     height: 850px;
-    background: url('Homepage_Modified.png') center center/cover no-repeat;
+    background: url('homepage_modified_weatherless.png') center center/cover no-repeat;
     border-radius: 40px;
     box-shadow: 0px 0px 0px 11px #1f1f1f, 0px 0px 0px 13px #191919, 0px 0px 0px 20px #111;
   
@@ -239,7 +239,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('/Homepage/Button/wordle_button.png') center center/contain no-repeat;
+  background: url('/homepage/Button/wordle_button.png') center center/contain no-repeat;
   border: none;
   color: transparent; /* Hide the text */
   text-indent: -9999px; /* Ensure text is hidden */
@@ -254,7 +254,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('/Homepage/Button/sudoku_button.png') center center/contain no-repeat;
+    background: url('/homepage/Button/sudoku_button.png') center center/contain no-repeat;
     border: none;
     color: transparent;
     text-indent: -9999px;
@@ -269,7 +269,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('/Homepage/Button/matchinggame_button.png') center center/contain no-repeat;
+    background: url('/homepage/Button/matchinggame_button.png') center center/contain no-repeat;
     border: none;
     color: transparent;
     text-indent: -9999px;
@@ -284,7 +284,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('/Homepage/Button/candycrush_button.png') center center/contain no-repeat;
+    background: url('/homepage/Button/candycrush_button.png') center center/contain no-repeat;
     border: none;
     color: transparent;
     text-indent: -9999px;
@@ -297,7 +297,7 @@ body {
     justify-self: end;
     margin-right: calc(50% - 145px);
     margin-bottom: 50px;
-    background: url('/Homepage/Button/help_button.png') center center/contain no-repeat;
+    background: url('/homepage/Button/help_button.png') center center/contain no-repeat;
     border: none;
     padding: 0;
     cursor: pointer;
@@ -455,7 +455,7 @@ body {
       right: 20px;  /* Center aligned similar to help button */
       width: 49px;  /* Match help button width */
     height: 60px;  /* Match help button height */
-    background: url('/Homepage/Button/settings_button.png') center center/contain no-repeat;
+    background: url('/homepage/Button/settings_button.png') center center/contain no-repeat;
     border: none; 
     padding: 0;
     cursor: pointer;
@@ -489,7 +489,7 @@ body {
     right: 73px;  /* 20px + width of settings button + 20px gap */
     width: 86px;  /* Match settings button width */
     height: 60px;  /* Match settings button height */
-    background: url('/Homepage/Button/weather_button.png') center center/contain no-repeat;
+    background: url('/homepage/Button/weather_button.png') center center/contain no-repeat;
     border: none;
     padding: 0;
     cursor: pointer;
@@ -516,5 +516,89 @@ body {
     100% {
         transform: scale(1);
     }
+}
+
+.weather-box {
+    position: absolute;
+    top: 20px;
+    left:25px;
+    width: 190px;
+    height: auto;  /* Let height adjust to content */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 14px;
+    padding: 8px;  /* Reduced from 12px */
+    color: black;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+    display: grid;
+    grid-template-areas: 
+        "location location"
+        "current-temp temp-range"
+        "current-temp humidity";
+    gap: 2px;
+}
+
+.location {
+    grid-area: location;
+    font-size: 14px;  /* Reduced from 16px */
+    font-weight: 500;
+    margin-bottom: 4px;  /* Reduced from 6px */
+    color: black;
+}
+
+.current-temp {
+    grid-area: current-temp;
+    font-size: 28px;  /* Reduced from 32px */
+    font-weight: 400;
+    margin-bottom: 2px;  /* Reduced from 3px */
+    color: black;
+    margin: 0;
+}
+
+.temp-range {
+    grid-area: temp-range;
+    display: flex;
+    align-items: start;
+    gap: 4px;  /* Reduced from 6px */
+    font-size: 11px;  /* Reduced from 12px */
+    margin-bottom: 0;  /* Remove bottom margin */
+    color: black;
+    justify-content: flex-end;
+    padding-top: 4px;
+}
+
+.humidity {
+    grid-area: humidity;
+    font-size: 11px;  /* Reduced from 12px */
+    opacity: 1;
+    color: black;
+    margin-bottom: 0;  /* Remove bottom margin */
+    white-space: nowrap;
+    align-self: end;
+    justify-self: end;
+}
+
+.warning {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #ff3b30; /* Changed to a darker red for better visibility */
+    margin-top: 4px;
+}
+
+.weather-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-top: 2px;
+}
+
+.temp-divider {
+    margin: 0 2px;
+    opacity: 0.7;
 }
 
