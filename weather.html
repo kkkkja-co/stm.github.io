@@ -18,9 +18,21 @@
             </div>
         </div>
 
-        <!-- Your weather content will go here -->
         <div class="weather-container">
-            <!-- Weather content -->
+            <div class="current-weather">
+                <div class="weather-header">
+                    <div class="weather-info">
+                        <div class="current-temp">--°C</div>
+                        <div class="humidity">Humidity: --%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="weather-forecast">
+                <div class="forecast-title">7-Day Forecast</div>
+                <div class="forecast-list">
+                    <!-- Forecast items will be added here by JavaScript -->
+                </div>
+            </div>
         </div>
 
         <div class="signature-container">
@@ -29,6 +41,8 @@
             <div class="signature">UI Design: Bosco Wong</div>
             <div class="signature">iPhone Frame Design: Adiel Hercules</div>
         </div>
+        <button class="settings-button" onclick="window.location.href='settings.html'" aria-label="Settings"></button>
+        <button class="weather-button" onclick="window.location.href='weather.html'" aria-label="Weather"></button>
     </div>
 
 

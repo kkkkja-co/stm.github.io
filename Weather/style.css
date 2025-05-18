@@ -85,6 +85,166 @@ body {
 
 /* Update container positioning */
 .weather-container {
-    position: relative;
-    padding-bottom: 120px; /* Make room for signature */
+    position: absolute;
+    top: 105px;  /* Adjust this value to align with the sun icon */
+    left: 100px; /* Adjust this value to position next to the sun icon */
+    padding: 0;
+}
+
+.current-weather {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 12px;
+    margin: 0;
+    color: black;
+    width: 140px;
+}
+
+.weather-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0;
+}
+
+.weather-info {
+    flex: 1;
+}
+
+.current-temp {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.humidity {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Remove these unused classes */
+.weather-icon,
+.weather-divider,
+.forecast-title {
+    display: none;
+}
+
+.weather-forecast {
+    position: absolute;
+    top: 140px;
+    left: 60%;
+    transform: translateX(-50%);
+    width: 320px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    color: black;
+}
+
+.forecast-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.forecast-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.forecast-item {
+    display: grid;
+    grid-template-columns: 60px 1fr 80px;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.forecast-date {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.forecast-condition {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.forecast-temp {
+    display: flex;
+    gap: 8px;
+    font-size: 17px;
+    justify-self: end;
+}
+
+.forecast-low {
+    color: #60c8ff;
+}
+
+.forecast-high {
+    color: #ff6b6b;
+}
+
+.settings-button {
+    position: absolute;
+    top: 770px;
+    right: 20px;
+    width: 49px;
+    height: 60px;
+    background: url('/homepage/Button/settings_button.png') center center/contain no-repeat;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: transparent;
+    text-indent: -9999px;
+    z-index: 100;
+    transform-origin: center;
+}
+
+.settings-button:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+    animation: settingsPulse 1.5s infinite;
+}
+
+@keyframes settingsPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.weather-button {
+    position: absolute;
+    top: 758px;
+    right: 73px;
+    width: 86px;
+    height: 60px;
+    background: url('/homepage/Button/weather_button.png') center center/contain no-repeat;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: transparent;
+    text-indent: -9999px;
+    z-index: 100;
+    transform-origin: center;
+}
+
+.weather-button:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+    animation: weatherPulse 1.5s infinite;
+}
+
+@keyframes weatherPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }

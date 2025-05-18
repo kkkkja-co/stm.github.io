@@ -602,3 +602,34 @@ body {
     opacity: 0.7;
 }
 
+.hk-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dynamic-island:hover .hk-info {
+    opacity: 1;
+}
+
+.hk-time {
+    font-weight: 600;
+}
+
+.weather-divider {
+    opacity: 0.5;
+}
+
+.hk-weather-icon {
+    font-size: 18px;
+}
+
+.hk-temp {
+    font-weight: 500;
+}
+

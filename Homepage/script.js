@@ -20,26 +20,9 @@ function updateHKTime() {
     timeElement.textContent = time;
 }
 
-// Set fixed weather
-function setDefaultWeather() {
-    const weatherElement = document.querySelector('.hk-weather');
-    const currentHour = new Date().getHours();
-    let condition = '☀️';
-    
-    if (currentHour < 6 || currentHour > 18) {
-        condition = '🌙';
-    } else if (currentHour > 12) {
-        condition = '⛅️';
-    }
-    
-    const temp = 12;  // Fixed temperature at 12°C
-    weatherElement.textContent = `${temp}°C ${condition}`;
-}
-
 // Update displays
 function updateDisplay() {
     updateHKTime();
-    setDefaultWeather();
 }
 
 // Initial update
@@ -164,38 +147,106 @@ function clearIframeCache(popupId) {
     iframe.src = currentSrc;
 }
 
-async function updateTuenMunWeather() {
-    const weatherBox = document.querySelector('.weather-box');
-    
+async function updateWeatherDisplay() {
     try {
-        // Fetch current weather data
+        console.log('Fetching weather data...'); // Debug log
         const weatherResponse = await fetch('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en');
         const weatherData = await weatherResponse.json();
-        
-        // Get Tuen Mun temperature
-        const tuenMunTemp = weatherData.temperature.data.find(item => item.place === "Tuen Mun");
-        weatherBox.querySelector('.current-temp').textContent = `${tuenMunTemp.value}°C`;
-        
-        // Get Tuen Mun humidity
-        const tuenMunHumidity = weatherData.humidity.data.find(item => item.place === "Tuen Mun");
-        weatherBox.querySelector('.humidity').textContent = `${tuenMunHumidity.value}%`;
-        
-        // Fetch forecast data for high/low temperatures
+        console.log('Weather data received:', weatherData); // Debug data
+
+        // Update dynamic island and weather box temperature
+        const temperature = weatherData.temperature.data.find(item => item.place === "Tuen Mun");
+        if (temperature) {
+            // Update both dynamic island and weather box temperatures
+            const currentTempElement = document.querySelector('.current-temp');
+            const dynamicTempElement = document.querySelector('.hk-temp');
+            
+            if (currentTempElement) currentTempElement.textContent = `${temperature.value}°C`;
+            if (dynamicTempElement) dynamicTempElement.textContent = `${temperature.value}°C`;
+            console.log('Temperature updated:', temperature.value);
+        }
+
+        // Update weather icon
+        if (weatherData.icon) {
+            const weatherIcon = getWeatherEmoji(weatherData.icon);
+            const iconElement = document.querySelector('.hk-weather-icon');
+            if (iconElement) {
+                iconElement.textContent = weatherIcon;
+                console.log('Weather icon updated:', weatherIcon);
+            }
+        }
+
+        // Update humidity
+        const humidity = weatherData.humidity.data.find(item => item.place === "Tuen Mun");
+        if (humidity) {
+            const humidityElement = document.querySelector('.humidity');
+            if (humidityElement) {
+                humidityElement.textContent = `Humidity: ${humidity.value}%`;
+                console.log('Humidity updated:', humidity.value);
+            }
+        }
+
+        // Update forecast (high/low temperatures)
         const forecastResponse = await fetch('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=en');
         const forecastData = await forecastResponse.json();
+        console.log('Forecast data received:', forecastData); // Debug data
         
-        // Get today's forecast
-        const todayForecast = forecastData.weatherForecast[0];
-        weatherBox.querySelector('.low-temp').textContent = `${todayForecast.forecastMintemp.value}°C`;
-        weatherBox.querySelector('.high-temp').textContent = `${todayForecast.forecastMaxtemp.value}°C`;
+        if (forecastData.weatherForecast?.[0]) {
+            const today = forecastData.weatherForecast[0];
+            const lowElement = document.querySelector('.low');
+            const highElement = document.querySelector('.high');
+            
+            if (lowElement) lowElement.textContent = `L: ${today.forecastMintemp.value}°C`;
+            if (highElement) highElement.textContent = `H: ${today.forecastMaxtemp.value}°C`;
+            console.log('Forecast updated:', today);
+        }
 
     } catch (error) {
         console.error('Error fetching weather data:', error);
     }
 }
 
+function getWeatherEmoji(iconCode) {
+    const weatherEmojis = {
+        50: '☀️',  // Sunny
+        51: '🌤️',  // Sunny Periods
+        52: '⛅',  // Sunny Intervals
+        53: '🌥️',  // Cloudy
+        54: '☁️',  // Overcast
+        60: '🌧️',  // Light Rain
+        61: '🌧️',  // Rain
+        62: '⛈️',  // Heavy Rain
+        63: '🌩️',  // Thunderstorms
+        64: '⛈️',  // Thunderstorms with Heavy Rain
+        65: '🌨️',  // Snow
+        70: '🌫️',  // Mist
+        71: '🌫️',  // Fog
+        72: '🌫️',  // Haze
+        73: '🌫️',  // Smoke
+        74: '🌫️',  // Sandstorm
+        76: '🌊',  // Tsunami Warning
+        77: '🌪️',  // Strong Monsoon Signal
+    };
+    return weatherEmojis[iconCode] || '🌤️';
+}
+
+function updateTime() {
+    const timeElement = document.querySelector('.hk-time');
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    timeElement.textContent = `${hours}:${minutes}`;
+}
+
+// Initialize and set update intervals
 document.addEventListener('DOMContentLoaded', () => {
-    updateTuenMunWeather();
-    // Update weather every 5 minutes
-    setInterval(updateTuenMunWeather, 300000);
+    console.log('Initializing weather display...'); // Debug log
+    
+    // Immediate updates
+    updateTime();
+    updateWeatherDisplay();
+    
+    // Set update intervals
+    setInterval(updateTime, 60000); // Update time every minute
+    setInterval(updateWeatherDisplay, 300000); // Update weather every 5 minutes
 });
